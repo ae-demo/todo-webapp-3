@@ -1,0 +1,46 @@
+{
+  "name": "todo-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "todo-api",
+  "entrypoint": "deployment/service",
+  "exposure": "intranet",
+  "stories": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "dependencies": [
+    {
+      "description": "Stores each user's tasks (title, tags, due date, priority, completion state).",
+      "kind": "platform-resource",
+      "name": "todo-db",
+      "resourceType": "postgres-cnpg"
+    },
+    {
+      "description": "Validates the caller's Thunder-issued token (via the gateway) and resolves the signed-in user's identity to scope tasks to that user.",
+      "kind": "platform-resource",
+      "name": "user-auth",
+      "resourceType": "thunder-app"
+    }
+  ],
+  "description": "The backend service owning task data for the todo webapp: create, edit, complete, reopen, delete, tag, and query tasks (filter/sort by tag, due date, priority) scoped to the signed-in caller only. Sits behind the API gateway, which injects the validated caller identity; the service does not issue or validate tokens itself and does not serve any UI.",
+  "skillsPinned": [
+    "openapi-conventions",
+    "ballerina",
+    "thunder-authentication",
+    "api-management"
+  ]
+}
