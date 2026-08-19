@@ -1,0 +1,10 @@
+# Ballerina (todo-api)
+todo-api/target/
+todo-api/generated/
+todo-api/Config.toml
+
+# Node / Vite (todo-webapp)
+todo-webapp/node_modules/
+todo-webapp/dist/
+todo-webapp/.env
+todo-webapp/.env.local
