@@ -22,20 +22,39 @@
     12,
     13
   ],
+  "description": "The single-page React application signed-in users interact with to manage their personal todo list: create, edit, complete, reopen, delete, tag, and filter/sort tasks by tag, due date, and priority. Handles sign-in via Thunder OIDC/PKCE and calls todo-api for all task data. Does not store task data itself and holds no secrets.",
   "dependencies": [
     {
-      "description": "Backend API for creating, editing, completing, and querying the signed-in user's tasks.",
       "kind": "component",
-      "name": "todo-api"
+      "name": "todo-api",
+      "description": "Backend API for creating, editing, completing, and querying the signed-in user's tasks.",
+      "wiring": {
+        "endpoint": {
+          "component": "todo-webapp-3-todo-api",
+          "name": "http",
+          "visibility": "project",
+          "envBindings": {
+            "address": "TODO_API_URL"
+          }
+        }
+      }
     },
     {
-      "description": "Thunder-issued OIDC client used for browser sign-in (PKCE); provides the SPA's public client id and issuer URLs.",
       "kind": "platform-resource",
       "name": "user-auth",
-      "resourceType": "thunder-app"
+      "description": "Thunder-issued OIDC client used for browser sign-in (PKCE); provides the SPA's public client id and issuer URLs.",
+      "resourceType": "thunder-app",
+      "wiring": {
+        "ref": "todo-webapp-3-user-auth",
+        "envBindings": {
+          "client_id": "USER_AUTH_CLIENT_ID",
+          "issuer": "USER_AUTH_ISSUER",
+          "jwks_url": "USER_AUTH_JWKS_URL",
+          "scopes": "USER_AUTH_SCOPES"
+        }
+      }
     }
   ],
-  "description": "The single-page React application signed-in users interact with to manage their personal todo list: create, edit, complete, reopen, delete, tag, and filter/sort tasks by tag, due date, and priority. Handles sign-in via Thunder OIDC/PKCE and calls todo-api for all task data. Does not store task data itself and holds no secrets.",
   "skillsPinned": [
     "wireframes",
     "react-webapp",
