@@ -23,10 +23,6 @@ A personal todo web application where a signed-in user can capture tasks, tag th
 7. As a User, I want to add tags to a task, so that I can group related tasks by context.
 8. As a User, I want to filter my tasks by tag, so that I can focus on one context at a time.
 9. As a User, I want to set an optional due date on a task, so that I know when it needs to be done.
-10. As a User, I want to sort or filter my tasks by due date, so that I can see what's coming up.
-11. As a User, I want to set a priority level (Low/Medium/High) on a task, so that I know what matters most.
-12. As a User, I want to sort or filter my tasks by priority, so that I can focus on the most important work first.
-13. As a User, I want to see a clear view of my open (incomplete) tasks separate from my completed ones, so that I'm not distracted by finished work.
 
 ## Product Decisions
 
